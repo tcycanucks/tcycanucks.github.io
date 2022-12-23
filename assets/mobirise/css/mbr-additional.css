@@ -3556,12 +3556,11 @@ a {
     margin-bottom: 2rem;
   }
 }
-.cid-tqOcX0bCWg {
-  z-index: 1000;
-  width: 100%;
+.cid-tqOcX0bCWg .navbar-dropdown {
+  position: relative !important;
 }
-.cid-tqOcX0bCWg nav.navbar {
-  position: fixed;
+.cid-tqOcX0bCWg .navbar-dropdown {
+  position: absolute !important;
 }
 .cid-tqOcX0bCWg .dropdown-item:before {
   font-family: Moririse2 !important;
@@ -3872,7 +3871,6 @@ a {
 }
 .cid-tqOcX0bCWg .navbar-dropdown {
   padding: 0 1rem;
-  position: fixed;
 }
 .cid-tqOcX0bCWg a.nav-link {
   display: flex;
