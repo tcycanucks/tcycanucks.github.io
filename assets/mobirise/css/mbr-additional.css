@@ -1307,12 +1307,6 @@ a {
     left: -1rem;
   }
 }
-.cid-tqPsDjEV4n {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  background-color: #232323;
-  overflow: hidden;
-}
 .cid-tqNW3jHmuY {
   padding-top: 6rem;
   padding-bottom: 2rem;
@@ -1707,12 +1701,6 @@ a {
     left: -1rem;
   }
 }
-.cid-tqPsDjEV4n {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  background-color: #232323;
-  overflow: hidden;
-}
 .cid-tqOcYEM2vb .navbar-dropdown {
   position: relative !important;
 }
@@ -2105,12 +2093,6 @@ a {
 .cid-tqOnVsWzBX .image-wrapper img {
   width: 100%;
   object-fit: cover;
-}
-.cid-tqPsDjEV4n {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  background-color: #232323;
-  overflow: hidden;
 }
 .cid-tqOEiPBts2 {
   padding-top: 6rem;
@@ -2510,12 +2492,6 @@ a {
     left: -1rem;
   }
 }
-.cid-tqPsDjEV4n {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  background-color: #232323;
-  overflow: hidden;
-}
 .cid-tqOJ7duHmJ {
   padding-top: 6rem;
   padding-bottom: 2rem;
@@ -2613,12 +2589,11 @@ a {
   width: 100%;
   object-fit: cover;
 }
-.cid-tqOcTScY0m {
-  z-index: 1000;
-  width: 100%;
+.cid-tqOcTScY0m .navbar-dropdown {
+  position: relative !important;
 }
-.cid-tqOcTScY0m nav.navbar {
-  position: fixed;
+.cid-tqOcTScY0m .navbar-dropdown {
+  position: absolute !important;
 }
 .cid-tqOcTScY0m .dropdown-item:before {
   font-family: Moririse2 !important;
@@ -2929,7 +2904,6 @@ a {
 }
 .cid-tqOcTScY0m .navbar-dropdown {
   padding: 0 1rem;
-  position: fixed;
 }
 .cid-tqOcTScY0m a.nav-link {
   display: flex;
@@ -2957,12 +2931,6 @@ a {
     max-width: calc(100% + 2rem);
     left: -1rem;
   }
-}
-.cid-tqPsDjEV4n {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  background-color: #232323;
-  overflow: hidden;
 }
 .cid-tqOU0v55Fb {
   padding-top: 5rem;
@@ -3144,12 +3112,11 @@ a {
     text-align: center;
   }
 }
-.cid-tqOcVibVgA {
-  z-index: 1000;
-  width: 100%;
+.cid-tqOcVibVgA .navbar-dropdown {
+  position: relative !important;
 }
-.cid-tqOcVibVgA nav.navbar {
-  position: fixed;
+.cid-tqOcVibVgA .navbar-dropdown {
+  position: absolute !important;
 }
 .cid-tqOcVibVgA .dropdown-item:before {
   font-family: Moririse2 !important;
@@ -3460,7 +3427,6 @@ a {
 }
 .cid-tqOcVibVgA .navbar-dropdown {
   padding: 0 1rem;
-  position: fixed;
 }
 .cid-tqOcVibVgA a.nav-link {
   display: flex;
@@ -3488,12 +3454,6 @@ a {
     max-width: calc(100% + 2rem);
     left: -1rem;
   }
-}
-.cid-tqPsDjEV4n {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  background-color: #232323;
-  overflow: hidden;
 }
 .cid-tqPofjOVgH {
   padding-top: 5rem;
@@ -3868,10 +3828,4 @@ a {
     max-width: calc(100% + 2rem);
     left: -1rem;
   }
-}
-.cid-tqPsDjEV4n {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  background-color: #232323;
-  overflow: hidden;
 }
