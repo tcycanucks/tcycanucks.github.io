@@ -43,8 +43,8 @@
         "url": "https://fonts.googleapis.com/css?family=Lexend:100,200,300,400,500,600,700,800,900"
       }
     ],
-    "favicon": false,
-    "mbrsiteDomain": "jccaqdtmg7",
+    "favicon": "@PROJECT_PATH@/assets/images/duck-in-coat-with-knife-square.jpg",
+    "mbrsiteDomain": "mopfaswfvs",
     "imageResize": false,
     "robotsSwitcher": false,
     "sitemapSwitcher": false,
@@ -52,6 +52,7 @@
     "siteUrl": false,
     "cookiesAlert": false,
     "gdpr": false,
+    "publishChangesOnly": false,
     "uniqCompNum": 2,
     "versionPublish": "5.7.4"
   },
