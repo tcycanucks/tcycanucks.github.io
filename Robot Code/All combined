@@ -1,0 +1,273 @@
+/*
+  NO LONGER UPDATED. SEE NEWER CODES FOR THE HARD TURN CODES AND ETC
+  
+5 PT w.motors (for all tracks)
+  -phototransmitters take light input
+  -leds turn on when black line is detected
+ 
+  - if PT reads black (Greater than 400) then turn LED (indicates detection of black) 
+*/
+
+int th1 = 400;     // sensorValue greater than threshold value means black
+int th2 = 400;     // sensorValue greater than threshold value means black
+int th3 = 400;     // sensorValue greater than threshold value means black
+int th4 = 35;     // sensorValue greater than threshold value means black
+int th5 = 250;     // sensorValue greater than threshold value means black
+
+
+const int led1 = 9;          // digital output pin that the LED is attached to
+const int led2 = 10;          // digital output pin that the LED is attached to
+const int led3 = 11;          // digital output pin that the LED is attached to
+const int led4 = 12;         // digital output pin that the LED is attached to
+const int led5 = 13;         // digital output pin that the LED is attached to
+
+const int enAPin = 6;   // left motor PWM speed control
+const int in1Pin = 7;   // left motor direction 1
+const int in2Pin = 5;   // left motor direction 2
+const int in3Pin = 4;   // right motor direction 1
+const int in4Pin = 2;   // right motor direction 2
+const int enBPin = 3;   // right motor PWM speed control
+
+
+void setup() {
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  pinMode(led4, OUTPUT);  
+  pinMode(led5, OUTPUT);  
+  
+  pinMode(enAPin, OUTPUT);
+  pinMode(in1Pin, OUTPUT);
+  pinMode(in2Pin, OUTPUT);
+  pinMode(in3Pin, OUTPUT);
+  pinMode(in4Pin, OUTPUT);
+  pinMode(enBPin, OUTPUT); 
+  Serial.begin(9600);     // initialize serial communications at 9600 bps:
+}
+
+
+
+
+
+
+void Forwards(){
+  digitalWrite(in1Pin,HIGH);//left wheel forward 
+  digitalWrite(in2Pin,LOW); 
+  digitalWrite(in3Pin,HIGH);//Right wheel forward 
+  digitalWrite(in4Pin,LOW); 
+  analogWrite(enAPin, 200);
+  analogWrite(enBPin, 200);
+}
+
+void Backwards(){
+  digitalWrite(in1Pin,LOW);//left wheel back 
+  digitalWrite(in2Pin,HIGH); 
+  digitalWrite(in3Pin,LOW);//Right wheel back 
+  digitalWrite(in4Pin,HIGH); 
+  analogWrite(enAPin, 200);
+  analogWrite(enBPin, 200);
+}
+
+void TRight(){
+  digitalWrite(in1Pin,HIGH);//left wheel forward 
+  digitalWrite(in2Pin,LOW); 
+  digitalWrite(in3Pin,LOW);//Right wheel back 
+  digitalWrite(in4Pin,HIGH); 
+  analogWrite(enAPin, 200);
+  analogWrite(enBPin, 200); 
+}
+
+void TRightlil(){
+  digitalWrite(in1Pin,HIGH);//left wheel forward 
+  digitalWrite(in2Pin,LOW); 
+  digitalWrite(in3Pin,LOW);//Right wheel back 
+  digitalWrite(in4Pin,HIGH); 
+  analogWrite(enAPin, 100);
+  analogWrite(enBPin, 100); 
+}
+
+void TLeft(){
+  digitalWrite(in1Pin,LOW);//left wheel back 
+  digitalWrite(in2Pin,HIGH); 
+  digitalWrite(in3Pin,HIGH);//Right wheel forward 
+  digitalWrite(in4Pin,LOW); 
+  analogWrite(enAPin, 200);
+  analogWrite(enBPin, 200);
+}
+
+void TLeftlil(){
+  digitalWrite(in1Pin,LOW);//left wheel back 
+  digitalWrite(in2Pin,HIGH); 
+  digitalWrite(in3Pin,HIGH);//Right wheel forward 
+  digitalWrite(in4Pin,LOW); 
+  analogWrite(enAPin, 100);
+  analogWrite(enBPin, 100);
+}
+
+void HLeft(){
+
+
+
+
+}
+
+void HRight(){
+
+
+
+
+}
+
+void HpLeft(){
+
+
+
+
+}
+
+void Stop(){
+  digitalWrite(in1Pin,LOW);//left wheel stop 
+  digitalWrite(in2Pin,LOW); 
+  digitalWrite(in3Pin,LOW);//Right wheel stop 
+  digitalWrite(in4Pin,LOW); 
+  analogWrite(enAPin, 0);
+  analogWrite(enBPin, 0);
+}
+
+
+
+
+void loop() {
+  int val1 = analogRead(A1);             // read the analog in value
+  int val2 = analogRead(A2);             // read the analog in value
+  int val3 = analogRead(A3);             // read the analog in value
+  int val4 = analogRead(A4);             // read the analog in value
+  int val5 = analogRead(A5);             // read the analog in value
+  
+  
+if (val1>th1 && val2<th2 && val3<th3 && val4<th4 && val5<th5) {                            //BWWWW turn left
+    digitalWrite(led1, HIGH);                            // change the digital out value 
+    TLeft();
+    Serial.print("sensor 1 = ");                         // print the results to the Serial Monitor:
+    Serial.println(val1);
+}
+else if (val1<th1 && val2>th2 && val3<th3 && val4<th4 && val5<th5) {                        //WBWWW turn left lil
+    digitalWrite(led2, HIGH);                            // change the digital out value 
+    TLeftlil();
+    Serial.print("sensor 2 = ");                         // print the results to the Serial Monitor:
+    Serial.println(val2);
+}
+else if (val1<th1 && val2<th2 && val3>th3 && val4<th4 && val5<th5) {                        //WWBWW forward
+    digitalWrite(led3, HIGH);                            // change the digital out value 
+    Forwards();
+    Serial.print("sensor 3 = ");                         // print the results to the Serial Monitor:
+    Serial.println(val3);
+}
+else if (val1<th1 && val2<th2 && val3<th3 && val4>th4 && val5<th5) {                        //WWWBW turn right lil
+    digitalWrite(led4, HIGH);                            // change the digital out value 
+    TRightlil();
+    Serial.print("sensor 4 = ");                         // print the results to the Serial Monitor:
+    Serial.println(val4);
+}
+else if (val1<th1 && val2<th2 && val3<th3 && val4<th4 && val5>th5) {                        //WWWWB turn right
+    digitalWrite(led5, HIGH);                            // change the digital out value 
+    TRight();
+    Serial.print("sensor 5 = ");                         // print the results to the Serial Monitor:
+    Serial.println(val5);
+}
+else if (val1>th1 && val2>th2 && val3<th3 && val4<th4 && val5<th5) {                            //BBWWW turn left
+    digitalWrite(led1, HIGH);                            // change the digital out value 
+    digitalWrite(led2, HIGH);                            // change the digital out value 
+    TLeft();
+}
+else if (val1<th1 && val2>th2 && val3>th3 && val4<th4 && val5<th5) {                        //WBBWW turn left lil
+    digitalWrite(led2, HIGH);                            // change the digital out value 
+    digitalWrite(led3, HIGH);                            // change the digital out value 
+    TLeftlil();
+}
+else if (val1<th1 && val2<th2 && val3>th3 && val4>th4 && val5<th5) {                        //WWBBW turn right lil
+    digitalWrite(led3, HIGH);                            // change the digital out value 
+    digitalWrite(led4, HIGH);                            // change the digital out value 
+    TRightlil();
+}
+else if (val1<th1 && val2<th2 && val3<th3 && val4>th4 && val5>th5) {                        //WWWBB turn right
+    digitalWrite(led4, HIGH);                            // change the digital out value 
+    digitalWrite(led5, HIGH);                            // change the digital out value 
+    TRight();
+}
+else if (val1>th1 && val2>th2 && val3>th3 && val4<th4 && val5<th5) {                        //BBBWW hard left
+    digitalWrite(led1, HIGH);                            // change the digital out value 
+    digitalWrite(led2, HIGH);                            // change the digital out value 
+    digitalWrite(led3, HIGH);                            // change the digital out value 
+    HLeft();
+}
+else if (val1<th1 && val2<th2 && val3>th3 && val4>th4 && val5>th5) {                        //WWBBB hard right
+    digitalWrite(led3, HIGH);                            // change the digital out value 
+    digitalWrite(led4, HIGH);                            // change the digital out value 
+    digitalWrite(led5, HIGH);                            // change the digital out value 
+    HRight();
+}
+else if (val1>th1 && val2>th2 && val3>th3 && val4>th4 && val5<th5) {                        //BBBBW forwards?? (fix if needed)
+    digitalWrite(led1, HIGH);                            // change the digital out value 
+    digitalWrite(led2, HIGH);                            // change the digital out value 
+    digitalWrite(led3, HIGH);                            // change the digital out value 
+    digitalWrite(led4, HIGH);                            // change the digital out value 
+    Forwards();
+}
+else if (val1<th1 && val2>th2 && val3>th3 && val4>th4 && val5>th5) {                        //WBBBB forwards?? (fix if needed)
+    digitalWrite(led2, HIGH);                            // change the digital out value 
+    digitalWrite(led3, HIGH);                            // change the digital out value 
+    digitalWrite(led4, HIGH);                            // change the digital out value 
+    digitalWrite(led5, HIGH);                            // change the digital out value 
+    Forwards();
+}
+else if (val1>th1 && val2>th2 && val3>th3 && val4>th4 && val5>th5) {                        //BBBBB forwards
+    digitalWrite(led1, HIGH);                            // change the digital out value 
+    digitalWrite(led2, HIGH);                            // change the digital out value 
+    digitalWrite(led3, HIGH);                            // change the digital out value 
+    digitalWrite(led4, HIGH);                            // change the digital out value 
+    digitalWrite(led5, HIGH);                            // change the digital out value 
+    Forwards();
+}
+else if (val1>th1 && val2<th2 && val3>th3 && val4<th4 && val5>th5) {                        //BWBWB forwards
+    digitalWrite(led1, HIGH);                            // change the digital out value 
+    digitalWrite(led3, HIGH);                            // change the digital out value 
+    digitalWrite(led5, HIGH);                            // change the digital out value 
+    Forwards();
+}
+else if (val1>th1 && val2<th2 && val3>th3 && val4<th4 && val5<th5) {                        //BWBWW hairpin to the left
+    digitalWrite(led1, HIGH);                            // change the digital out value 
+    digitalWrite(led3, HIGH);                            // change the digital out value 
+    HpLeft();
+}
+
+
+else if (val1<th1 && val2<th2 && val3<th3 && val4<th4 && val5<th5) {                        //WWWWW forwards
+    Forwards();
+}
+ 
+ 
+ /*    Serial.print("sensor 1 = ");                         // print the results to the Serial Monitor:
+    Serial.println(val1);
+      Serial.print("sensor 2 = ");                         // print the results to the Serial Monitor:
+    Serial.println(val2);
+    Serial.print("sensor 3 = ");                         // print the results to the Serial Monitor:
+    Serial.println(val3);
+      Serial.print("sensor 4 = ");                         // print the results to the Serial Monitor:
+    Serial.println(val4);
+    Serial.print("sensor 5 = ");                         // print the results to the Serial Monitor:
+    Serial.println(val5);
+ */
+ 
+  // wait 200 milliseconds before the next loop for the analog-to-digital
+  // converter to settle after the last reading:
+  delay(200);
+  digitalWrite(led1, LOW);                            // change the digital out value 
+  digitalWrite(led2, LOW);                            // change the digital out value 
+  digitalWrite(led3, LOW);                            // change the digital out value 
+  digitalWrite(led4, LOW);                            // change the digital out value 
+  digitalWrite(led5, LOW);                            // change the digital out value 
+  delay(100);       // longer delay allows for any gaps in line course to be neglected and robot goes thru break/gap without making any changes
+                    // track/course 1 has no gaps
+  
+}
